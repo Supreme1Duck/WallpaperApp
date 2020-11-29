@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
             Container(height: 80,
             child: ListView.builder(
               shrinkWrap: true,
+              padding: EdgeInsets.symmetric(horizontal : 24),
               itemCount: categories.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
@@ -67,13 +68,19 @@ class CategoriesTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right : 4),
       child: Stack(children : <Widget>[
-          Container(
-            child: Image.network(imageUrl),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.network(imageUrl, height: 50, width: 100, fit: BoxFit.cover),
           ),
 
           Container(
-            child: Text(name,)
+            color: Colors.black26,
+            height: 50,
+            width: 100,
+            alignment: Alignment.center,
+            child: Text(name, style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500))
           )
       ]),
     );
